@@ -11,10 +11,10 @@ const WeatherLayout = () => {
 
   return (
     <div>
-      <div className="grid grid-flow-row grid-cols-3 h-screen">
+      <div className="grid grid-cols-1 grid-flow-row md:grid-cols-3 h-screen">
         <div className="col-span-2 bg-secondary w-full">
           {weatherData ? (
-            <div className={"grid grid-rows-2 h-full"}>
+            <div className={"grid md:grid-rows-2 h-full"}>
               <LocationDetails data={weatherData} />
               <ForeCastComponent forecastData={weatherData} />
             </div>

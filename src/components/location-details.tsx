@@ -14,7 +14,11 @@ const LocationDetails: FC<ILocationDetails> = ({ data }) => {
   );
 
   return (
-    <div className={"flex flex-row h-full justify-between p-12 items-center"}>
+    <div
+      className={
+        "flex flex-wrap md:flex-row h-full justify-between p-12 items-center"
+      }
+    >
       <div>
         <p className={"text-5xl font-bold text-primary"}>
           °{data?.current?.temp_c}C / {data?.current.temp_f}°F

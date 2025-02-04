@@ -48,7 +48,7 @@ const ForeCastCard: FC<IForeCastCard> = ({ forecastData }) => {
   return (
     <div
       className={
-        "flex flex-col items-center justiify-center rounded-xl border border-primary w-40 h-56 hover:bg-primary/20 cursor-pointer transition-all ease-in-out duration-150 py-5 px-2"
+        "flex flex-col items-center justiify-center rounded-xl border border-primary w-full md:w-40 h-56 hover:bg-primary/20 cursor-pointer transition-all ease-in-out duration-150 py-5 md:px-2"
       }
     >
       <div>
