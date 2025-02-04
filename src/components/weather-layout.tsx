@@ -4,6 +4,8 @@ import useSearchQuery from "@/hook/useSearch";
 import LocationDetails from "./location-details";
 import ForeCastComponent from "./forecast/forecast-component";
 import ErrorScreen from "./error";
+import { Button } from "./ui/button";
+import { DialogCloseButton } from "./dialog-component";
 
 const WeatherLayout = () => {
   const { query, setQuery, handleKeyPress, handleSubmit, weatherData } =
@@ -23,7 +25,7 @@ const WeatherLayout = () => {
           )}
         </div>
 
-        <div className="row-start-1 bg-primary w-full">
+        <div className="flex flex-col row-start-1 bg-primary w-full h-full">
           <LocationComponent
             query={query}
             setQuery={setQuery}
@@ -31,6 +33,12 @@ const WeatherLayout = () => {
             handleSubmit={handleSubmit}
           />
           <WeatherDetails data={weatherData} />
+
+          {/* Push this div to the bottom */}
+          <div className="flex flex-col items-center gap-5 border-t-[1px] border-secondary pt-5 mt-auto">
+            <p className="text-secondary">Project by David Etuk</p>
+            <DialogCloseButton />
+          </div>
         </div>
       </div>
     </div>
