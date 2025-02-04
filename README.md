@@ -1,4 +1,4 @@
-# Weather Task
+# Weather Task - https://pm-accelerator.vercel.app/
 
 A responsive weather application.
 
@@ -9,6 +9,7 @@ A responsive weather application.
 - 🎨 Lucide icons for icons.
 - 🌥️ WeatherAPI.com for weather forecast.
 - Superbase for database
+- Deployed on Vercel
 
 ## TASK 1
 
