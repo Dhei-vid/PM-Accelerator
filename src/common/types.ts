@@ -27,7 +27,7 @@ export interface IWeatherData {
     lat: number;
     lon: number;
     tz_id: string;
-    locatltime: number;
+    localtime: number;
   };
   current: {
     temp_c: string;

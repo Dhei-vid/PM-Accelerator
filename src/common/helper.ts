@@ -1,5 +1,7 @@
+"use server";
+
+require("dotenv").config();
 import axios from "axios";
-import "dotenv/config";
 import { IWeatherData } from "./types";
 
 /**

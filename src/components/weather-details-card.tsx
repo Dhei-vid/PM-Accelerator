@@ -2,7 +2,7 @@ import { FC } from "react";
 
 interface IWeatherDetailsCard {
   title: string;
-  weatherReport: number | string | null;
+  weatherReport: number | string | null | undefined;
 }
 
 const WeatherDetailsCard: FC<IWeatherDetailsCard> = ({

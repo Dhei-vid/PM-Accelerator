@@ -1,6 +1,12 @@
+import { FC } from "react";
 import WeatherDetailsCard from "./weather-details-card";
+import { IWeatherData } from "@/common/types";
 
-const WeatherDetails = () => {
+type IWeatherDetails = {
+  data: IWeatherData | null | undefined;
+};
+
+const WeatherDetails: FC<IWeatherDetails> = ({ data }) => {
   return (
     <div
       className={
@@ -8,11 +14,32 @@ const WeatherDetails = () => {
       }
     >
       <h1 className={"font-semibold text-[#EAE6E5]"}>Weather Details</h1>
-      <div className={"flex flex-col gap-6 w-full"}>
-        <WeatherDetailsCard title={"Cloudy"} weatherReport={"11%"} />
-        <WeatherDetailsCard title={"Humidity"} weatherReport={"78%"} />
-        <WeatherDetailsCard title={"Windy"} weatherReport={"1km/h"} />
-        <WeatherDetailsCard title={"Rain"} weatherReport={"0mm"} />
+
+      <div>
+        {data ? (
+          <div className={"flex flex-col gap-6 w-full"}>
+            <WeatherDetailsCard
+              title={"Cloudy"}
+              weatherReport={`${data?.current?.cloud}%`}
+            />
+            <WeatherDetailsCard
+              title={"Humidity"}
+              weatherReport={`${data?.current?.humidity}%`}
+            />
+            <WeatherDetailsCard
+              title={"Windy"}
+              weatherReport={`${data?.current?.wind_kph}km/h | ${data?.current?.wind_mph}m/h`}
+            />
+            <WeatherDetailsCard
+              title={"Rain"}
+              weatherReport={data?.current?.precip_mm}
+            />
+          </div>
+        ) : (
+          <div className={"flex justify-center h-full"}>
+            <p className={"text-secondary"}>Not available</p>
+          </div>
+        )}
       </div>
     </div>
   );
