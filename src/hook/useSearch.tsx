@@ -3,15 +3,14 @@ import { IForecastData, ITotalWeatherData } from "@/common/types";
 import { fetchWeatherData } from "@/common/helper";
 
 const useSearchQuery = (initialQuery = "") => {
-  const [query, setQuery] = useState<string>(initialQuery);
-  const [submittedQuery, setSubmittedQuery] = useState<string>("");
+  const [locationQuery, setLocationQuery] = useState<string>(initialQuery);
+  const [dateQuery, setDateQuery] = useState<string>(initialQuery);
   const [weatherData, setWeatherData] = useState<
     ITotalWeatherData | undefined | null
   >(null);
 
   const handleSubmit = async () => {
-    setSubmittedQuery(query);
-    const response = await fetchWeatherData(query);
+    const response = await fetchWeatherData(locationQuery, dateQuery);
     setWeatherData(response);
   };
 
@@ -24,9 +23,10 @@ const useSearchQuery = (initialQuery = "") => {
   };
 
   return {
-    query,
-    setQuery,
-    submittedQuery,
+    locationQuery,
+    setLocationQuery,
+    dateQuery,
+    setDateQuery,
     handleKeyPress,
     handleSubmit,
     weatherData,

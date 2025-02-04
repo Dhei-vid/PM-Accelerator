@@ -4,10 +4,18 @@ import useSearchQuery from "@/hook/useSearch";
 import LocationDetails from "./location-details";
 import ForeCastComponent from "./forecast/forecast-component";
 import ErrorScreen from "./error";
+import { Button } from "./ui/button";
 
 const WeatherLayout = () => {
-  const { query, setQuery, handleKeyPress, handleSubmit, weatherData } =
-    useSearchQuery();
+  const {
+    locationQuery,
+    setLocationQuery,
+    dateQuery,
+    setDateQuery,
+    handleKeyPress,
+    handleSubmit,
+    weatherData,
+  } = useSearchQuery();
 
   return (
     <div>
@@ -25,12 +33,15 @@ const WeatherLayout = () => {
 
         <div className="row-start-1 bg-primary w-full">
           <LocationComponent
-            query={query}
-            setQuery={setQuery}
+            locationQuery={locationQuery}
+            setLocationQuery={setLocationQuery}
+            dateQuery={dateQuery}
+            setDateQuery={setDateQuery}
             handleKeyDown={handleKeyPress}
             handleSubmit={handleSubmit}
           />
           <WeatherDetails data={weatherData} />
+          <Button></Button>
         </div>
       </div>
     </div>
