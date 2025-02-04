@@ -7,6 +7,7 @@ interface IForeCastComponent {
 }
 
 const ForeCastComponent: FC<IForeCastComponent> = ({ forecastData }) => {
+  console.log("FCD ", forecastData);
   return (
     <div className={"h-full flex flex-col items-center"}>
       <div className={"bg-primary p-5 w-full"}>
@@ -16,9 +17,11 @@ const ForeCastComponent: FC<IForeCastComponent> = ({ forecastData }) => {
       </div>
 
       <div className={"flex flex-row gap-3 items-center justify-between pt-2"}>
-        {forecastData?.forecast.forecastday.map((forecast, index) => {
-          return <ForeCastCard key={index} forecastData={forecast} />;
-        })}
+        {forecastData?.forecast.forecastday
+          .filter((_, index) => index !== 0)
+          .map((forecast, index) => {
+            return <ForeCastCard key={index} forecastData={forecast} />;
+          })}
       </div>
     </div>
   );

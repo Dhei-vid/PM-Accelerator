@@ -12,7 +12,7 @@ import { ITotalWeatherData } from "./types";
 export const fetchWeatherData = async (location: string) => {
   try {
     const response = await axios<ITotalWeatherData>(
-      `http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API_KEY}&q=${location}&days=5&aqi=no`
+      `http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API_KEY}&q=${location}&days=6&aqi=no`
     );
 
     // return data;
