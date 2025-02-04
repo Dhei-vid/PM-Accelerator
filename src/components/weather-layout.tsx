@@ -12,9 +12,9 @@ const WeatherLayout = () => {
   return (
     <div>
       <div className="grid grid-cols-1 grid-flow-row md:grid-cols-3 h-screen">
-        <div className="col-span-2 bg-secondary w-full">
+        <div className="row-start-2 md:row-start-1 md:col-span-2 bg-secondary w-full">
           {weatherData ? (
-            <div className={"grid md:grid-rows-2 h-full"}>
+            <div className={"flex flex-col h-full"}>
               <LocationDetails data={weatherData} />
               <ForeCastComponent forecastData={weatherData} />
             </div>
@@ -23,7 +23,7 @@ const WeatherLayout = () => {
           )}
         </div>
 
-        <div className="grid grid-rows-2 bg-primary w-full">
+        <div className="row-start-1 bg-primary w-full">
           <LocationComponent
             query={query}
             setQuery={setQuery}

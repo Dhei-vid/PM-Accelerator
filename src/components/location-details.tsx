@@ -16,7 +16,7 @@ const LocationDetails: FC<ILocationDetails> = ({ data }) => {
   return (
     <div
       className={
-        "flex flex-wrap md:flex-row h-full justify-between p-12 items-center"
+        "flex flex-wrap md:flex-nowrap md:flex-row h-fit justify-between p-12 items-center"
       }
     >
       <div>
