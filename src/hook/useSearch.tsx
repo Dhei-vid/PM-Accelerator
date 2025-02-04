@@ -1,12 +1,12 @@
-import { useState, useEffect, KeyboardEvent } from "react";
-import { IWeatherData } from "@/common/types";
+import { useState } from "react";
+import { IForecastData, ITotalWeatherData } from "@/common/types";
 import { fetchWeatherData } from "@/common/helper";
 
 const useSearchQuery = (initialQuery = "") => {
   const [query, setQuery] = useState<string>(initialQuery);
   const [submittedQuery, setSubmittedQuery] = useState<string>("");
   const [weatherData, setWeatherData] = useState<
-    IWeatherData | null | undefined
+    ITotalWeatherData | undefined | null
   >(null);
 
   const handleSubmit = async () => {

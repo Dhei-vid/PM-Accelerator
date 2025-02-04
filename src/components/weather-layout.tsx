@@ -2,7 +2,7 @@ import WeatherDetails from "./weather-details";
 import LocationComponent from "./location-component";
 import useSearchQuery from "@/hook/useSearch";
 import LocationDetails from "./location-details";
-import Recommendation from "./recommendation";
+import ForeCastComponent from "./forecast/forecast-component";
 import ErrorScreen from "./error";
 
 const WeatherLayout = () => {
@@ -14,9 +14,9 @@ const WeatherLayout = () => {
       <div className="grid grid-flow-row grid-cols-3 h-screen">
         <div className="col-span-2 bg-secondary w-full">
           {weatherData ? (
-            <div>
+            <div className={"grid grid-rows-2 h-full"}>
               <LocationDetails data={weatherData} />
-              <Recommendation />
+              <ForeCastComponent forecastData={weatherData} />
             </div>
           ) : (
             <ErrorScreen />

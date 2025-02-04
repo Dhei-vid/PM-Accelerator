@@ -14,10 +14,10 @@ const LocationDetails: FC<ILocationDetails> = ({ data }) => {
   );
 
   return (
-    <div className={"flex flex-row justify-between p-12 items-center"}>
+    <div className={"flex flex-row h-full justify-between p-12 items-center"}>
       <div>
-        <p className={"text-6xl font-bold text-primary"}>
-          °{data?.current?.temp_c}C
+        <p className={"text-5xl font-bold text-primary"}>
+          °{data?.current?.temp_c}C / {data?.current.temp_f}°F
         </p>
       </div>
       <div className={"flex flex-col gap-2"}>
@@ -31,8 +31,8 @@ const LocationDetails: FC<ILocationDetails> = ({ data }) => {
 
       <div>
         <Image
-          width={40}
-          height={40}
+          width={50}
+          height={50}
           src={`https:${data?.current?.condition?.icon as string}`}
           alt={`${data?.current?.condition?.text} weather icon`}
         />

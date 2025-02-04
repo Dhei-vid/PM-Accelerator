@@ -2,7 +2,7 @@
 
 require("dotenv").config();
 import axios from "axios";
-import { IWeatherData } from "./types";
+import { ITotalWeatherData } from "./types";
 
 /**
  * Fetch weather information based on location
@@ -11,8 +11,8 @@ import { IWeatherData } from "./types";
  */
 export const fetchWeatherData = async (location: string) => {
   try {
-    const response = await axios<IWeatherData>(
-      `http://api.weatherapi.com/v1/current.json?key=${process.env.WEATHER_API_KEY}&q=${location}&aqi=no`
+    const response = await axios<ITotalWeatherData>(
+      `http://api.weatherapi.com/v1/forecast.json?key=${process.env.WEATHER_API_KEY}&q=${location}&days=5&aqi=no`
     );
 
     // return data;
