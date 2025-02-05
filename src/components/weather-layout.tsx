@@ -7,9 +7,17 @@ import ErrorScreen from "./error";
 import { Button } from "./ui/button";
 import { DialogCloseButton } from "./dialog-component";
 
+
 const WeatherLayout = () => {
-  const { query, setQuery, handleKeyPress, handleSubmit, weatherData } =
-    useSearchQuery();
+  const {
+    locationQuery,
+    setLocationQuery,
+    dateQuery,
+    setDateQuery,
+    handleKeyPress,
+    handleSubmit,
+    weatherData,
+  } = useSearchQuery();
 
   return (
     <div>
@@ -27,14 +35,14 @@ const WeatherLayout = () => {
 
         <div className="flex flex-col row-start-1 bg-primary w-full h-full">
           <LocationComponent
-            query={query}
-            setQuery={setQuery}
+            locationQuery={locationQuery}
+            setLocationQuery={setLocationQuery}
+            dateQuery={dateQuery}
+            setDateQuery={setDateQuery}
             handleKeyDown={handleKeyPress}
             handleSubmit={handleSubmit}
           />
           <WeatherDetails data={weatherData} />
-
-          {/* Push this div to the bottom */}
           <div className="flex flex-col items-center gap-5 border-t-[1px] border-secondary pt-5 mt-auto">
             <p className="text-secondary">Project by David Etuk</p>
             <DialogCloseButton />

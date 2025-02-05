@@ -8,18 +8,23 @@ import {
   KeyboardEventHandler,
 } from "react";
 import SearchBar from "./search-bar";
+import { Button } from "./ui/button";
+import { Search } from "lucide-react";
 
 interface ILocationComponent {
-  query: string;
-  setQuery: Dispatch<SetStateAction<string>>;
+  locationQuery: string;
+  setLocationQuery: Dispatch<SetStateAction<string>>;
+  dateQuery: string;
+  setDateQuery: Dispatch<SetStateAction<string>>;
   handleKeyDown: KeyboardEventHandler<HTMLInputElement>;
   handleSubmit: () => void;
 }
 
 const LocationComponent: FC<ILocationComponent> = ({
-  query,
-  setQuery,
-  handleKeyDown,
+  locationQuery,
+  setLocationQuery,
+  dateQuery,
+  setDateQuery,
   handleSubmit,
 }) => {
   const [isClient, setIsClient] = useState(false);
@@ -29,20 +34,34 @@ const LocationComponent: FC<ILocationComponent> = ({
   }, []);
 
   // GETTING DATA FROM INPUT BAR
-  const onSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setQuery(event.target.value);
+  const onSearchLocationChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setLocationQuery(event.target.value);
+  };
+
+  const onSearchDateChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setDateQuery(event.target.value);
   };
 
   return (
     <main className={""}>
       {isClient && (
-        <SearchBar
-          placeholder="What city are you located in?"
-          location={query}
-          onChangeHandler={onSearchChange}
-          onKeyDown={handleKeyDown}
-          handleSubmit={handleSubmit}
-        />
+        <div className={"flex flex-col"}>
+          <SearchBar
+            type={"text"}
+            placeholder="What city are you located in?"
+            value={locationQuery}
+            onChangeHandler={onSearchLocationChange}
+          />
+          <SearchBar
+            type={"date"}
+            placeholder={"date"}
+            value={dateQuery}
+            onChangeHandler={onSearchDateChange}
+          />
+          <Button onClick={handleSubmit}>
+            <Search className={"text-primary"} size={30} />
+          </Button>
+        </div>
       )}
     </main>
   );
